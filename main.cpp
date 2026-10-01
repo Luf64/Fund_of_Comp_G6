@@ -72,13 +72,13 @@ void recommendContent(int genreChoice, int moodChoice)
             string types[6] = {
                 "Sci-Fi / Mystery Series",
                 "Sci-Fi / Adventure",
-                "Sci-Fi / family Adventure Series",
+                "Sci-Fi / Family Adventure Series",
                 "Sci-Fi / Anthology Series",
                 "Sci-Fi / Drama",
                 "Sci-Fi / Adventure"};
             string descriptions[6] = {
                 "A group of young friends uncover supernatural forces and secret government exploits.",
-                "A time-traveling pilot teams up with his younger self to save the the future and confront his past.",
+                "A time-traveling pilot teams up with his younger self to save the future and confront his past.",
                 "A family of space explorers must survive on an alien planet after their ship crashes.",
                 "An anthology series exploring the dark side of technology and its impact on society.",
                 "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
@@ -107,7 +107,7 @@ void recommendContent(int genreChoice, int moodChoice)
                 "Prisoners"};
             string types[6] = {
                 "Thriller / Drama",
-                "crime Drama / Thriller Series",
+                "Crime Drama / Thriller Series",
                 "Psychological Thriller Series",
                 "Thriller / Drama Series",
                 "Crime / Thriller Series",
@@ -172,7 +172,7 @@ void recommendContent(int genreChoice, int moodChoice)
             string types[6] = {
                 "Animated Comedy / Sci-Fi",
                 "Animated Action / Fantasy Series",
-                "Animated Dark fantasy / Action Series",
+                "Animated Dark Fantasy / Action Series",
                 "Animated Anthology / Sci-Fi Series",
                 "Animated Action / Adventure",
                 "Animated Action / Dark Fantasy"};
@@ -208,7 +208,7 @@ void recommendContent(int genreChoice, int moodChoice)
                 "A washed-up actor, who happens to be a horse, navigates life and relationships in Hollywood.",
                 "A fearless young girl journeys through a magical world of giants and other magical creatures.",
                 "A group of teenagers navigate the awkward and hilarious challenges of puberty with the help of their hormone monsters.",
-                "A selfish postman befrinds a reclusive toymaker, sparking an unlikely friendship that brings joy to a frozen town.",
+                "A selfish postman befriends a reclusive toymaker, sparking an unlikely friendship that brings joy to a frozen town.",
                 "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits.",
                 "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room."};
             int index = getRandomIndex(6);
