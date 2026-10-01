@@ -276,8 +276,13 @@ int main()
 
     } while (restartChoice == "r" || restartChoice == "R");
 
-    cout << "Enjoy your show!\n"
+    cout << "Enjoy your show!"
          << endl;
-    this_thread::sleep_for(chrono::seconds(3));
+    for (int i = 3; i > 0; i--)
+    {
+        cout << "Closing in " << i << "...\r" << flush;
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+    cout << "\n";
     return 0;
 }
