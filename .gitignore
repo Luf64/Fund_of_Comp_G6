@@ -1,0 +1,8 @@
+app.exe
+*.json
+build/
+dist/
+.vs/
+*.exe
+*.log
+*.tmp
