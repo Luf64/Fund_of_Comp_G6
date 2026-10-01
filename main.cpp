@@ -2,6 +2,8 @@
 #include <string>
 #include <random>
 #include <chrono>
+#include <limits>
+#include <cstdlib>
 
 using namespace std;
 
@@ -191,20 +193,46 @@ void recommendContent(int genreChoice, int moodChoice){
     cout << "===============================================\n";
 }
 
+int getValidChoice(const string& prompt, int minVal, int maxVal) {
+    int choice;
+    while (true) {
+        cout << prompt;
+        if (cin >> choice && choice >= minVal && choice <= maxVal) {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear leftover input
+            return choice;
+        }
+        if (cin.eof()) exit(0);   // input closed, avoid infinite loop
+
+        cin.clear();                                              // reset error state (for letters etc.)
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');      // throw away bad input
+        cout << "Invalid input. Please enter a number from "
+             << minVal << " to " << maxVal << ".\n\n";
+    }
+}
+
 int main() {
-    int genreChoice, moodChoice;
-    displayHeader();
-    cout << "SELECT YOUR PREFERRED GENRE:\n";
-    cout << "1. Action / Sci-Fi\n";
-    cout << "2. Drama / Thriller\n";
-    cout << "3. Animation / Comedy\n";
-    cout << "Enter your choice (1-3): ";
-    cin >> genreChoice;
-    cout << "\nSELECT YOUR VIEWING MOOD:\n";
-    cout << "1. Intense / Exciting\n";
-    cout << "2. Story-Rich / Chill\n";
-    cout << "Enter your choice (1-2): ";
-    cin >> moodChoice;
-    recommendContent(genreChoice, moodChoice);
+    char again;
+    do {
+        displayHeader();
+        cout << "SELECT YOUR PREFERRED GENRE:\n";
+        cout << "1. Action / Sci-Fi\n";
+        cout << "2. Drama / Thriller\n";
+        cout << "3. Animation / Comedy\n";
+        int genreChoice = getValidChoice("Enter your choice (1-3): ", 1, 3);
+
+        cout << "\nSELECT YOUR VIEWING MOOD:\n";
+        cout << "1. Intense / Exciting\n";
+        cout << "2. Story-Rich / Chill\n";
+        int moodChoice = getValidChoice("Enter your choice (1-2): ", 1, 2);
+
+        recommendContent(genreChoice, moodChoice);
+
+        cout << "\nGet another recommendation? (y/n): ";
+        cin >> again;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\n";
+    } while (again == 'y' || again == 'Y');
+
+    cout << "Enjoy your show!\n";
     return 0;
 }
